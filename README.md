@@ -43,7 +43,7 @@ import { Client, Message } from "discord.js"; // Imports for type definitions
 let commandConfig: CommandConfig = {
   title: "test", // Command name
   description: "Test Command", // Command description for potential guide commands
-  category: "Tests", // Command description for potential grouping
+  category: "Tests", // Command category for potential grouping
   aliases: ["test2", "test3"], // Aliases of command name
 };
 
