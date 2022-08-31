@@ -16,17 +16,11 @@ git clone https://github.com/BotEkrem/SimpleDiscordBotTemplateWithTS.git
 cd SimpleDiscordBotTemplateWithTS
 ```
 
-- Install "typescript", "nodemon" and "ts-node":
-
-```
-npm install typescript
-npm install -g nodemon ts-node
-```
-
-- Install dependencies:
+- Install dependencies, "nodemon" and "ts-node":
 
 ```
 npm install
+npm install -g nodemon ts-node
 ```
 
 - After this steps, to run the bot:
