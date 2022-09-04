@@ -1,4 +1,4 @@
-import Discord, { GatewayIntentBits } from 'discord.js';
+import Discord, { GatewayIntentBits, Message } from 'discord.js';
 import jetpack from 'fs-jetpack';
 import { Command } from "./classes/Command";
 import { Event } from './classes/Event';
@@ -45,7 +45,7 @@ async function setCommands(): Promise<Discord.Collection<String, Command>> {
 
   let commands = new Discord.Collection<String, Command>();
 
-  commandFiles.forEach((v, i) => {
+  commandFiles.forEach((v: String, i: Number) => {
     let command = require(`./${v}`).default;
     if (!command || command.constructor.name !== 'Command') throw Error(`Provided objects from "commands" folder are must be "Command" class. - ${v}`);
     commands.set(v, command);
@@ -64,7 +64,7 @@ async function setEvents(): Promise<Discord.Collection<String, Event>> {
 
   let events = new Discord.Collection<String, Event>();
 
-  commandFiles.forEach((v, i) => {
+  commandFiles.forEach((v: String, i: Number) => {
     let event = require(`./${v}`).default;
     if (!event || event.constructor.name !== 'Event') throw Error(`Provided objects from "events" folder are must be "Event" class. - ${v}`);
     client.on(event.config.name, (...args) => event.run(...args));
@@ -77,7 +77,7 @@ async function setEvents(): Promise<Discord.Collection<String, Event>> {
 
 // Handling messages for commands
 
-client.on("messageCreate", (message) => {
+client.on("messageCreate", (message: Message) => {
   if (
     message.content.startsWith(client.prefix) &&
     message.content.split(" ")[0] != client.prefix
